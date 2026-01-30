@@ -58,11 +58,3 @@ The backend is built using FastAPI, a modern web framework for building APIs wit
 1. Navigate to the `backend` directory.
 2. Install dependencies using `pip install -r requirements.txt`.
 3. Run the FastAPI server with `uvicorn app.main:app --reload`.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
