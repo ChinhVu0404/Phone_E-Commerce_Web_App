@@ -1,0 +1,124 @@
+================================================================================
+                    HƯỚNG DẪN CHẠY CHƯƠNG TRÌNH PHONE E-COMMERCE APP
+================================================================================
+
+1. YÊU CẦU HỆ THỐNG
+--------------------------------------------------------------------------------
+- Python 3.8 trở lên
+- Node.js 18.x trở lên
+- npm hoặc yarn
+
+================================================================================
+2. CHẠY BACKEND (FastAPI)
+================================================================================
+
+Bước 1: Mở terminal và di chuyển vào thư mục backend
+    cd phone-ecommerce-app/backend
+
+Bước 2: Tạo môi trường ảo Python
+    python -m venv venv
+
+Bước 3: Kích hoạt môi trường ảo
+    - Windows (PowerShell):
+        .\venv\Scripts\Activate.ps1
+    
+    - Windows (CMD):
+        venv\Scripts\activate.bat
+    
+    - Linux/MacOS:
+        source venv/bin/activate
+
+Bước 4: Cài đặt các thư viện cần thiết
+    pip install -r requirements.txt
+
+Bước 5: Chạy server backend
+    uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+
+    Hoặc:
+    python -m uvicorn app.main:app --reload --port 8000
+
+Backend sẽ chạy tại: http://localhost:8000
+API Documentation: http://localhost:8000/docs
+
+================================================================================
+3. CHẠY FRONTEND (Next.js)
+================================================================================
+
+Bước 1: Mở terminal MỚI và di chuyển vào thư mục frontend
+    cd phone-ecommerce-app/frontend
+
+Bước 2: Cài đặt các package Node.js
+    npm install
+    
+    Hoặc dùng yarn:
+    yarn install
+
+Bước 3: Chạy server frontend (Development mode)
+    npm run dev
+    
+    Hoặc dùng yarn:
+    yarn dev
+
+Frontend sẽ chạy tại: http://localhost:3000
+
+================================================================================
+4. CHẠY CẢ HAI CÙNG LÚC
+================================================================================
+
+Cần mở 2 terminal riêng biệt:
+
+Terminal 1 - Backend:
+    cd phone-ecommerce-app/backend
+    .\venv\Scripts\Activate.ps1
+    uvicorn app.main:app --reload --port 8000
+
+Terminal 2 - Frontend:
+    cd phone-ecommerce-app/frontend
+    npm run dev
+
+================================================================================
+5. CÁC LỆNH HỮU ÍCH KHÁC
+================================================================================
+
+BACKEND:
+--------
+- Chạy tests:
+    pytest
+
+- Chạy với debug mode:
+    uvicorn app.main:app --reload --log-level debug
+
+- Seed database (nếu có):
+    python -m app.db.seed
+
+FRONTEND:
+---------
+- Build production:
+    npm run build
+
+- Chạy production:
+    npm start
+
+- Lint code:
+    npm run lint
+
+================================================================================
+6. TROUBLESHOOTING
+================================================================================
+
+Lỗi: "venv\Scripts\Activate.ps1 cannot be loaded because running scripts 
+       is disabled on this system"
+Giải pháp: Chạy PowerShell với quyền Admin và gõ:
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Lỗi: "Module not found" khi chạy backend
+Giải pháp: Đảm bảo đã kích hoạt môi trường ảo và cài đặt requirements.txt
+
+Lỗi: "ENOENT" hoặc "npm ERR!" khi chạy frontend
+Giải pháp: Xóa thư mục node_modules và file package-lock.json, sau đó:
+    rm -rf node_modules package-lock.json
+    npm install
+
+================================================================================
+                              CHÚC BẠN THÀNH CÔNG!
+================================================================================
